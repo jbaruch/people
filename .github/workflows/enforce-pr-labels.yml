@@ -5,9 +5,9 @@ on:
     types: [labeled, unlabeled, opened, edited, synchronize]
 jobs:
   enforce-label:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, "Default"]
     steps:
-    - uses: yogevbd/enforce-label-action@2.1.0
-    with:
-        REQUIRED_LABELS_ANY: "ok-to-test"
-        REQUIRED_LABELS_ANY_DESCRIPTION: "Requires ok-to-test label for testing before merge."
+      - uses: yogevbd/enforce-label-action@2.1.0
+        with:
+          REQUIRED_LABELS_ANY: "ok-to-test"
+          REQUIRED_LABELS_ANY_DESCRIPTION: "Requires ok-to-test label for testing before merge."
